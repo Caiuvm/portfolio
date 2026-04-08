@@ -1,4 +1,3 @@
-// Dados dos projetos (para simular um backend)
 const projetosData = [
     {
         id: 1,
@@ -19,7 +18,6 @@ const projetosData = [
     
 ];
 
-// Função para renderizar os cards de projeto
 function renderizarProjetos() {
     const grid = document.getElementById('projetosGrid');
     if (!grid) return;
@@ -46,7 +44,6 @@ function renderizarProjetos() {
         grid.appendChild(card);
     });
 
-    // Adicionar eventos aos botões "Ver projeto"
     document.querySelectorAll('.btn-projeto[data-acao="ver"]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const id = parseInt(btn.getAttribute('data-id'));
@@ -56,7 +53,6 @@ function renderizarProjetos() {
     });
 }
 
-// Abrir modal com detalhes do projeto
 function abrirModal(projeto) {
     const modal = document.getElementById('modalProjeto');
     const modalBody = document.getElementById('modalBody');
@@ -85,14 +81,12 @@ function abrirModal(projeto) {
     document.body.style.overflow = 'hidden';
 }
 
-// Fechar modal
 function fecharModal() {
     const modal = document.getElementById('modalProjeto');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
-// Menu hambúrguer
 function initMenuHamburger() {
     const hamburger = document.getElementById('menuHamburger');
     const navMenu = document.getElementById('navMenu');
@@ -102,7 +96,6 @@ function initMenuHamburger() {
             navMenu.classList.toggle('active');
         });
 
-        // Fechar menu ao clicar em um link
         document.querySelectorAll('.nav-list a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -111,7 +104,6 @@ function initMenuHamburger() {
     }
 }
 
-// Scroll suave para links internos
 function initScrollSuave() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -129,7 +121,6 @@ function initScrollSuave() {
     });
 }
 
-// Simular download do currículo
 function initCurriculo() {
     const btnCurriculo = document.getElementById('btnCurriculo');
     if (btnCurriculo) {
@@ -143,14 +134,12 @@ function initCurriculo() {
     }
 }
 
-// Inicializar tudo quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     renderizarProjetos();
     initMenuHamburger();
     initScrollSuave();
     initCurriculo();
 
-    // Evento de fechar modal
     const modal = document.getElementById('modalProjeto');
     const fecharBtn = document.querySelector('.modal-fechar');
     if (fecharBtn) {
