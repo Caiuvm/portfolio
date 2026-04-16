@@ -14,6 +14,7 @@ const projetosData = [
             "assets/projetos/GynLogDespesa.png",
             "assets/projetos/GynLogMovimentacao.png"
         ],
+        linkProjeto: "#",
         linkCodigo: "https://github.com/Caiuvm/Projeto-Integrador-GynLog"
     },
     
@@ -129,7 +130,7 @@ function initScrollSuave() {
     });
 }
 
-// Simular download do currículo
+// Download do currículo
 function initCurriculo() {
     const btnCurriculo = document.getElementById('btnCurriculo');
     if (btnCurriculo) {
