@@ -7,15 +7,37 @@ const projetosData = [
         descricaoCompleta: "O GynLog é um sistema desktop desenvolvido com o objetivo de realizar o controle e gerenciamento de frotas de veículos, permitindo o acompanhamento detalhado de veículos, despesas e movimentações. O sistema foi desenvolvido utilizando a linguagem Java, com interface gráfica construída através do Java Swing na IDE Apache NetBeans, proporcionando uma experiência visual simples, funcional e intuitiva.",
         problema: "O sistema GynLog foi desenvolvido para resolver a dificuldade no controle manual e desorganizado de frotas de veículos, muito comum em pequenas empresas ou operações logísticas.",
         tecnologias: ["Java", "Java Swing", "Manipulação de Arquivos"],
-        imagem: "assets/projetos/GynLogHome.png",
+        imagem: "assets/projetos/GynLog/GynLogHome.png",
         imagensDetalhe: [
-            "assets/projetos/GynLogHome.png",
-            "assets/projetos/GynLogCadastro.png",
-            "assets/projetos/GynLogDespesa.png",
-            "assets/projetos/GynLogMovimentacao.png"
+            "assets/projetos/GynLog/GynLogHome.png",
+            "assets/projetos/GynLog/GynLogCadastro.png",
+            "assets/projetos/GynLog/GynLogDespesa.png",
+            "assets/projetos/GynLog/GynLogMovimentacao.png"
         ],
         linkProjeto: "#",
         linkCodigo: "https://github.com/Caiuvm/Projeto-Integrador-GynLog"
+    },
+
+        {
+        id: 2,
+        nome: "Av Car Auto Center",
+        descricao: "Sistema de Gestão para Oficina Mecânica",
+        descricaoCompleta: "Sistema monolítico para gestão operacional de uma oficina mecânica local, desenvolvido para controlar clientes, veículos, colaboradores, funções, ordens de serviço, peças, fornecedores, pagamentos, garantias, fila de atendimento e geração de documentos em PDF.",
+        problema: "O principal objetivo do sistema é melhorar o controle das Ordens de Serviço da oficina, garantindo que cada atendimento seja registrado de forma organizada e rastreável.",
+        tecnologias: ["Java", "Angular", "PostgreSQL", "SpringBoot"],
+        imagem: "assets/projetos/OficinaMecanica/Logotipo.png",
+        imagensDetalhe: [
+            "assets/projetos/OficinaMecanica/TelaHome.png",
+            "assets/projetos/OficinaMecanica/TelaClientes.jpeg",
+            "assets/projetos/OficinaMecanica/TelaVeiculos.jpeg",
+            "assets/projetos/OficinaMecanica/TelaOrdensDeServiços.jpeg",
+            "assets/projetos/OficinaMecanica/TelaFilaDeAtendimento.jpeg",
+            "assets/projetos/OficinaMecanica/TelaDeGarantias.jpeg",
+            "assets/projetos/OficinaMecanica/TelaDePagamentos.jpeg",
+            "assets/projetos/OficinaMecanica/TelaRelatorios.png"
+        ],
+        linkProjeto: "#",
+        linkCodigo: "https://github.com/Caiuvm/Projeto-Integrador-Oficina-Mecanica"
     },
     
 ];
@@ -150,6 +172,29 @@ document.addEventListener('DOMContentLoaded', () => {
     initMenuHamburger();
     initScrollSuave();
     initCurriculo();
+
+    // Evento de clique para ZOOM nas imagens (Cards e Modal)
+    document.body.addEventListener('click', (e) => {
+        const imagemClicada = e.target;
+        const ehImagemAlvo = imagemClicada.classList.contains('card-imagem') || imagemClicada.closest('.modal-imagens img');
+
+        if (ehImagemAlvo) {
+            // Guarda se a imagem clicada já estava aberta antes de limpar tudo
+            const jaEstavaAtiva = imagemClicada.classList.contains('zoom-ativo');
+
+            // Fecha AUTOMATICAMENTE todas as outras imagens que estavam com zoom
+            document.querySelectorAll('.zoom-ativo').forEach(img => img.classList.remove('zoom-ativo'));
+
+            // Se ela NÃO estava aberta, agora ela abre
+            if (!jaEstavaAtiva) {
+                imagemClicada.classList.add('zoom-ativo');
+            }
+        } else {
+            // Se clicar no fundo ou em outro elemento, fecha todas
+            document.querySelectorAll('.zoom-ativo').forEach(img => img.classList.remove('zoom-ativo'));
+        }
+    });
+
 
     // Evento de fechar modal
     const modal = document.getElementById('modalProjeto');

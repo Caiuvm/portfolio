@@ -199,8 +199,29 @@ body {
 .card-imagem {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover;   
 }
+
+/* Configuração base para indicar que a imagem é clicável */
+.card-imagem, .modal-imagens img {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+/* Estado de zoom ativo */
+.zoom-ativo {
+    transform: scale(1.5); /* Amplia a imagem em 50% */
+    cursor: zoom-out;      /* Muda o ponteiro para indicar que reduzirá no próximo clique */
+    position: relative;
+    z-index: 9999;         /* Garante que fique acima de textos do card/modal */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Dá profundidade ao destacar */
+}
+
+/* Evita que o modal esconda a imagem ampliada */
+.modal-imagens {
+    overflow: visible !important; 
+}
+
 
 .card-conteudo {
     padding: 1.5rem;
